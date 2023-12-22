@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labo Jenkins Release/Test</title>
+</head>
+
+<body>
+    <h1>Tijds weergave</h1>
+    <h2 id="currentTime"></h2>
+    <script>
+        // Function to update the time and set it to the h2 element
+        function updateTime() {
+            // Create a new Date object to get the current time
+            var now = new Date();
+
+            // Get hours, minutes, and seconds
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+
+            // Format the time as HH:MM:SS
+            var formattedTime = padZero(hours) + ":" + padZero(minutes) + ":" + padZero(seconds);
+
+            // Set the formatted time to the h2 element with id "currentTime"
+            document.getElementById("currentTime").textContent = formattedTime;
+        }
+
+        // Function to pad a single digit number with a leading zero
+        function padZero(num) {
+            return (num < 10 ? '0' : '') + num;
+        }
+
+        // Update the time immediately and then every second
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+
+</html>
